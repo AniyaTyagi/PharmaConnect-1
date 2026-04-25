@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./PharmaConnect-backend
+    container_name: pharma-backend
+    restart: always
+    env_file: ./PharmaConnect-backend/.env
+    ports:
+      - "5000:5000"
+    networks:
+      - pharma-net
+
+  frontend:
+    build:
+      context: ./PharmaConnect-frontend
+      args:
+        # Since nginx proxies /api → backend, no absolute URL needed in browser
+        VITE_API_URL: ""
+    container_name: pharma-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - pharma-net
+
+networks:
+  pharma-net:
+    driver: bridge

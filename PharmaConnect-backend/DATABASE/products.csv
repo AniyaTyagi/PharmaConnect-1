@@ -1,0 +1,51 @@
+Product_ID,Product_Name,Category,Composition,Brand_Name,Manufacturer
+P00001,Metformin 500mg Tablet Variant 0,Tablet,Metformin 500mg,Glycomet,USV Ltd
+P00002,Insulin Injection Variant 1,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00003,ORS Powder Variant 2,Sachet,Oral Rehydration Salts,Electral,FDC Ltd
+P00004,Cetirizine Syrup Variant 3,Syrup,Cetirizine 5mg/5ml,Zyrtec,Cipla
+P00005,Azithromycin 500mg Tablet Variant 4,Tablet,Azithromycin 500mg,Azee,Cipla
+P00006,Amoxicillin 250mg Capsule Variant 5,Capsule,Amoxicillin 250mg,Mox,Sun Pharma
+P00007,Azithromycin 500mg Tablet Variant 6,Tablet,Azithromycin 500mg,Azee,Cipla
+P00008,Insulin Injection Variant 7,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00009,Amoxicillin 250mg Capsule Variant 8,Capsule,Amoxicillin 250mg,Mox,Sun Pharma
+P00010,ORS Powder Variant 9,Sachet,Oral Rehydration Salts,Electral,FDC Ltd
+P00011,Digital Thermometer Variant 10,Device,Electronic Thermometer,Omron Thermo,Omron Healthcare
+P00012,Azithromycin 500mg Tablet Variant 11,Tablet,Azithromycin 500mg,Azee,Cipla
+P00013,ORS Powder Variant 12,Sachet,Oral Rehydration Salts,Electral,FDC Ltd
+P00014,Azithromycin 500mg Tablet Variant 13,Tablet,Azithromycin 500mg,Azee,Cipla
+P00015,BP Monitor Variant 14,Device,Blood Pressure Monitor,Omron BP,Omron Healthcare
+P00016,Metformin 500mg Tablet Variant 15,Tablet,Metformin 500mg,Glycomet,USV Ltd
+P00017,Surgical Mask Pack Variant 16,Equipment,3 Ply Mask,SafeMask,Zydus
+P00018,Cetirizine Syrup Variant 17,Syrup,Cetirizine 5mg/5ml,Zyrtec,Cipla
+P00019,Digital Thermometer Variant 18,Device,Electronic Thermometer,Omron Thermo,Omron Healthcare
+P00020,Metformin 500mg Tablet Variant 19,Tablet,Metformin 500mg,Glycomet,USV Ltd
+P00021,Metformin 500mg Tablet Variant 20,Tablet,Metformin 500mg,Glycomet,USV Ltd
+P00022,Azithromycin 500mg Tablet Variant 21,Tablet,Azithromycin 500mg,Azee,Cipla
+P00023,Surgical Mask Pack Variant 22,Equipment,3 Ply Mask,SafeMask,Zydus
+P00024,Surgical Mask Pack Variant 23,Equipment,3 Ply Mask,SafeMask,Zydus
+P00025,Surgical Mask Pack Variant 24,Equipment,3 Ply Mask,SafeMask,Zydus
+P00026,Insulin Injection Variant 25,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00027,ORS Powder Variant 26,Sachet,Oral Rehydration Salts,Electral,FDC Ltd
+P00028,BP Monitor Variant 27,Device,Blood Pressure Monitor,Omron BP,Omron Healthcare
+P00029,Insulin Injection Variant 28,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00030,Cetirizine Syrup Variant 29,Syrup,Cetirizine 5mg/5ml,Zyrtec,Cipla
+P00031,Surgical Mask Pack Variant 30,Equipment,3 Ply Mask,SafeMask,Zydus
+P00032,ORS Powder Variant 31,Sachet,Oral Rehydration Salts,Electral,FDC Ltd
+P00033,Digital Thermometer Variant 32,Device,Electronic Thermometer,Omron Thermo,Omron Healthcare
+P00034,BP Monitor Variant 33,Device,Blood Pressure Monitor,Omron BP,Omron Healthcare
+P00035,Metformin 500mg Tablet Variant 34,Tablet,Metformin 500mg,Glycomet,USV Ltd
+P00036,Metformin 500mg Tablet Variant 35,Tablet,Metformin 500mg,Glycomet,USV Ltd
+P00037,Surgical Mask Pack Variant 36,Equipment,3 Ply Mask,SafeMask,Zydus
+P00038,Surgical Mask Pack Variant 37,Equipment,3 Ply Mask,SafeMask,Zydus
+P00039,Paracetamol 500mg Tablet Variant 38,Tablet,Paracetamol 500mg,Crocin,Sun Pharma
+P00040,Digital Thermometer Variant 39,Device,Electronic Thermometer,Omron Thermo,Omron Healthcare
+P00041,Cetirizine Syrup Variant 40,Syrup,Cetirizine 5mg/5ml,Zyrtec,Cipla
+P00042,Amoxicillin 250mg Capsule Variant 41,Capsule,Amoxicillin 250mg,Mox,Sun Pharma
+P00043,Insulin Injection Variant 42,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00044,Insulin Injection Variant 43,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00045,BP Monitor Variant 44,Device,Blood Pressure Monitor,Omron BP,Omron Healthcare
+P00046,Digital Thermometer Variant 45,Device,Electronic Thermometer,Omron Thermo,Omron Healthcare
+P00047,Insulin Injection Variant 46,Injection,Human Insulin,Huminsulin,Eli Lilly India
+P00048,Cetirizine Syrup Variant 47,Syrup,Cetirizine 5mg/5ml,Zyrtec,Cipla
+P00049,Paracetamol 500mg Tablet Variant 48,Tablet,Paracetamol 500mg,Crocin,Sun Pharma
+P00050,ORS Powder Variant 49,Sachet,Oral Rehydration Salts,Electral,FDC Ltd

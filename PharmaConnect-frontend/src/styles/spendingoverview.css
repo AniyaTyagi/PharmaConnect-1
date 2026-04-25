@@ -1,0 +1,65 @@
+.spending-overview {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.spending-header {
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spending-icon {
+  font-size: 20px;
+}
+
+.spending-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+}
+
+.spending-content {
+  padding: 24px;
+}
+
+.spending-content h2 {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.spending-content h2 span {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.spending-content p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}

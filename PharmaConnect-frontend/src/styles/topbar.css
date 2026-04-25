@@ -1,0 +1,276 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: white;
+  border-bottom: 1px solid #f3f4f6;
+  position: relative;
+  z-index: 20;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-left h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  background: #d1fae5;
+  color: #047857;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-icon {
+  position: relative;
+  padding: 6px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.topbar-icon:hover {
+  background: #f3f4f6;
+}
+
+.topbar-icon > span:first-child {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  background: #ef4444;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: white;
+  font-weight: 700;
+  padding: 0 2px;
+}
+
+.user-avatar-top {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Dropdowns */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 320px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.dropdown-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.dropdown-header span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.dropdown-header .mark-read-btn {
+  background: none;
+  border: none;
+  color: #10b981;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown-header .mark-read-btn:hover {
+  color: #059669;
+}
+
+/* Notification items */
+.notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f9fafb;
+  cursor: pointer;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.notif-item:hover {
+  background: #f9fafb;
+}
+
+.notif-item.unread {
+  background: rgba(209, 250, 229, 0.25);
+}
+
+.notif-item-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notif-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.notif-title {
+  margin: 0 0 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.notif-item.unread .notif-title {
+  color: #1f2937;
+}
+
+.notif-msg {
+  margin: 0 0 4px;
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+.notif-time {
+  margin: 0;
+  font-size: 10px;
+  color: #d1d5db;
+}
+
+.unread-dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* Profile dropdown */
+.profile-dropdown {
+  min-width: 220px;
+  width: 220px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.profile-avatar-lg {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  margin: 0 0 2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.profile-email {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #f3f4f6;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover {
+  background: #f9fafb;
+}
+
+.dropdown-item.logout {
+  color: #ef4444;
+}
+
+.dropdown-item.logout:hover {
+  background: #fef2f2;
+}
