@@ -122,7 +122,7 @@ const SellerProductsPage = () => {
     if (form.imageFile) formData.append("images", form.imageFile);
     try {
       if (modal?._id) await axiosInstance.put(`/products/${modal._id}`, formData);
-      else            await axiosInstance.post("/products/add", formData);
+      else            await axiosInstance.post("/products", formData);
       setModal(null);
       load();
     } catch (err) {

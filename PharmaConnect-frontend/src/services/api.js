@@ -66,11 +66,11 @@ export const api = {
 
   // Orders
   getOrders: async () => {
-    const res = await axiosInstance.get("/api/orders/my");
+    const res = await axiosInstance.get("/orders/my");
     return res.data;
   },
   getOrder: async (id) => {
-    const res = await axiosInstance.get("/api/orders/my");
+    const res = await axiosInstance.get("/orders/my");
     return res.data.find((o) => o._id === id) || null;
   },
   placeOrder: async () => {
@@ -84,14 +84,14 @@ export const api = {
 
   // Invoices — derived from orders
   getInvoices: async () => {
-    const res = await axiosInstance.get("/api/orders/my");
+    const res = await axiosInstance.get("/orders/my");
     return res.data;
   },
 
   // Dashboard
   getDashboardStats: async () => {
     const cartItems = getCartData();
-    const res = await axiosInstance.get("/api/orders/my");
+    const res = await axiosInstance.get("/orders/my");
     const orders = res.data;
     return {
       totalOrders:   orders.length,
