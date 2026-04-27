@@ -77,7 +77,7 @@ export const api = {
     const cartItems = getCartData();
     if (!cartItems.length) throw new Error("Cart is empty");
     const items = cartItems.map((i) => ({ product: i.productId, name: i.name, quantity: i.quantity, price: i.price }));
-    const res = await axiosInstance.post("/api/orders", { items });
+    const res = await axiosInstance.post("/orders", { items });
     saveCartData([]);
     return res.data;
   },

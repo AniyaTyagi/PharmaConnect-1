@@ -58,7 +58,7 @@ export class RegistrationController {
         drugLicense: data.drugLicense,
         manufacturingLicense: data.manufacturingLicense,
       };
-      await axiosInstance.post('/api/verification/submit', payload);
+      await axiosInstance.post('/verification/submit', payload);
       localStorage.removeItem(OTP_STORAGE_KEY);
       return { success: true };
     } catch (err) {
