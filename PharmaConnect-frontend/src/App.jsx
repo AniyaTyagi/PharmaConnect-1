@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
+import { WishlistProvider } from "./context/WishlistContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ChatbotWidget from "./components/ChatbotWidget";
 import IntroSplash from "./pages/IntroSplash";
@@ -9,6 +10,7 @@ import CartPage from "./pages/CartPage";
 import ProductsPage from "./pages/ProductsPage";
 import OrdersPage from "./pages/OrdersPage";
 import InvoicesPage from "./pages/InvoicesPage";
+import WishlistPage from "./pages/WishlistPage";
 import SettingsPage from "./pages/SettingsPage";
 import { SellerProvider } from "./seller/context/SellerContext";
 import SellerDashboard from "./seller/pages/SellerDashboard";
@@ -31,7 +33,8 @@ function App() {
 
   return (
     <CartProvider>
-      <Router>
+      <WishlistProvider>
+        <Router>
         <Routes>
           {/* Intro Splash */}
           <Route path="/" element={<IntroSplash />} />
@@ -43,6 +46,7 @@ function App() {
           <Route path="/products" element={<ProtectedRoute allowedRoles={["buyer"]}><ProductsPage /></ProtectedRoute>} />
           <Route path="/orders"   element={<ProtectedRoute allowedRoles={["buyer"]}><OrdersPage /></ProtectedRoute>} />
           <Route path="/invoices" element={<ProtectedRoute allowedRoles={["buyer"]}><InvoicesPage /></ProtectedRoute>} />
+          <Route path="/wishlist" element={<ProtectedRoute allowedRoles={["buyer"]}><WishlistPage /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute allowedRoles={["buyer", "seller", "manufacturer"]}><SettingsPage /></ProtectedRoute>} />
 
           {/* Seller */}
@@ -80,6 +84,7 @@ function App() {
         </Routes>
         {isLoggedIn && <ChatbotWidget />}
       </Router>
+      </WishlistProvider>
     </CartProvider>
   );
 }

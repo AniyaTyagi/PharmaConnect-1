@@ -101,4 +101,22 @@ export const api = {
       recentOrders:  orders.slice(0, 5),
     };
   },
+
+  // Wishlist — real backend
+  getWishlist: async () => {
+    const res = await axiosInstance.get("/wishlist");
+    return res.data;
+  },
+  addToWishlist: async (productId) => {
+    const res = await axiosInstance.post(`/wishlist/add/${productId}`);
+    return res.data;
+  },
+  removeFromWishlist: async (productId) => {
+    const res = await axiosInstance.delete(`/wishlist/remove/${productId}`);
+    return res.data;
+  },
+  clearWishlist: async () => {
+    const res = await axiosInstance.delete("/wishlist/clear");
+    return res.data;
+  },
 };

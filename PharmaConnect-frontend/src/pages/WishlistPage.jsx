@@ -10,16 +10,14 @@ import { useWishlist } from "../context/WishlistContext";
 const WishlistPage = () => {
   const navigate = useNavigate();
   const { refreshCart } = useCart();
-  const { refreshWishlist } = useWishlist();
-  const [items,   setItems]   = useState([]);
-  const [moving,  setMoving]  = useState(null);
+  const { wishlist, loading, removeFromWishlist, refreshWishlist } = useWishlist();
+  const [moving, setMoving] = useState(null);
 
-  useEffect(() => { setItems(api.getWishlist()); }, []);
-
-  const remove = (productId) => {
-    const updated = api.removeFromWishlist(productId);
-    setItems(updated);
-    refreshWishlist();
+  const handleRemove = async (productId) => {
+    const result = await removeFromWishlist(productId);
+    if (!result.success) {
+      alert(result.error);
+    }
   };
 
   const moveToCart = async (product) => {
@@ -27,14 +25,26 @@ const WishlistPage = () => {
     try {
       await api.addToCart(product, 1);
       await refreshCart();
-      const updated = api.removeFromWishlist(product._id);
-      setItems(updated);
-      refreshWishlist();
+      await removeFromWishlist(product._id);
     } catch (e) {
       alert(e.message);
     }
     setMoving(null);
   };
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen bg-gray-50">
+        <Sidebar activeMenu="wishlist" />
+        <div className="ml-44 flex-1 flex flex-col min-h-screen">
+          <Topbar />
+          <main className="flex-1 p-6 flex items-center justify-center">
+            <p className="text-gray-400">Loading wishlist...</p>
+          </main>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -45,10 +55,10 @@ const WishlistPage = () => {
 
           <div>
             <h1 className="text-xl font-bold text-gray-800 tracking-tight">Wishlist</h1>
-            <p className="text-xs text-gray-400 mt-0.5">{items.length} saved product{items.length !== 1 ? "s" : ""}</p>
+            <p className="text-xs text-gray-400 mt-0.5">{wishlist.length} saved product{wishlist.length !== 1 ? "s" : ""}</p>
           </div>
 
-          {items.length === 0 ? (
+          {wishlist.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-32 gap-3">
               <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center">
                 <Heart size={28} className="text-gray-300" />
@@ -62,7 +72,7 @@ const WishlistPage = () => {
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-4">
-              {items.map((product) => (
+              {wishlist.map((product) => (
                 <div key={product._id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
                   {/* Image */}
                   <div className="relative h-40 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center overflow-hidden">
@@ -81,7 +91,7 @@ const WishlistPage = () => {
                     </span>
                     {/* Remove from wishlist */}
                     <button
-                      onClick={() => remove(product._id)}
+                      onClick={() => handleRemove(product._id)}
                       className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white shadow flex items-center justify-center hover:bg-red-50 transition-colors group">
                       <Heart size={14} className="text-red-400 fill-red-400 group-hover:text-red-600 group-hover:fill-red-600" />
                     </button>
@@ -116,7 +126,7 @@ const WishlistPage = () => {
                         {moving === product._id ? "Moving..." : "Move to Cart"}
                       </button>
                       <button
-                        onClick={() => remove(product._id)}
+                        onClick={() => handleRemove(product._id)}
                         className="px-3 py-2 text-sm font-semibold text-red-400 hover:text-red-600 border border-red-100 hover:border-red-300 rounded-xl transition-colors">
                         Remove
                       </button>

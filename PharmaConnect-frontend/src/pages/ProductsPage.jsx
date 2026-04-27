@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Search, Package } from "lucide-react";
+import { Search, Package, Heart } from "lucide-react";
 import { api } from "../services/api";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 
@@ -12,6 +13,7 @@ const ProductsPage = () => {
   const [sortBy,   setSortBy]   = useState("Name");
   const [adding, setAdding] = useState(null);
   const { refreshCart } = useCart();
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
 
   useEffect(() => {
     const cat = category === "All Categories" ? "" : category;
@@ -29,6 +31,16 @@ const ProductsPage = () => {
     try { await api.addToCart(product, 1); await refreshCart(); }
     catch (e) { alert(e.message); }
     setAdding(null);
+  };
+
+  const toggleWishlist = async (productId) => {
+    if (isInWishlist(productId)) {
+      const result = await removeFromWishlist(productId);
+      if (!result.success) alert(result.error);
+    } else {
+      const result = await addToWishlist(productId);
+      if (!result.success) alert(result.error);
+    }
   };
 
   return (
@@ -104,6 +116,15 @@ const ProductsPage = () => {
                     <span className="absolute top-2 left-2 text-[10px] font-semibold bg-emerald-500 text-white px-2 py-0.5 rounded-full">
                       {product.category}
                     </span>
+                    {/* Wishlist button */}
+                    <button
+                      onClick={() => toggleWishlist(product._id)}
+                      className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center hover:bg-red-50 transition-colors group">
+                      <Heart
+                        size={16}
+                        className={isInWishlist(product._id) ? "text-red-500 fill-red-500" : "text-gray-400 group-hover:text-red-500"}
+                      />
+                    </button>
                   </div>
 
                   {/* Info */}

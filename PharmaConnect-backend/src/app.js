@@ -43,6 +43,7 @@ const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const inventoryRoutes = require("./routes/inventoryRoutes");
 const invoiceRoutes = require("./routes/invoiceRoutes");
+const wishlistRoutes = require("./routes/wishlistRoutes");
 
 // =======================
 // 🔹 Models
@@ -58,6 +59,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/invoices", invoiceRoutes);
+app.use("/api/wishlist", wishlistRoutes);
 
 // =======================
 // 🔹 Home Route

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LayoutDashboard, Pill, ShoppingCart, Package, FileText, Settings, Menu, X } from "lucide-react";
+import { LayoutDashboard, Pill, ShoppingCart, Package, FileText, Heart, Settings, Menu, X } from "lucide-react";
 
 const navItems = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/buyer-dashboard" },
   { key: "products",  label: "Products",  icon: Pill,            path: "/products" },
   { key: "cart",      label: "Cart",      icon: ShoppingCart,    path: "/cart" },
+  { key: "wishlist",  label: "Wishlist",  icon: Heart,           path: "/wishlist" },
   { key: "orders",    label: "Orders",    icon: Package,         path: "/orders" },
   { key: "invoices",  label: "Invoices",  icon: FileText,        path: "/invoices" },
 ];
