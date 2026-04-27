@@ -10,7 +10,7 @@ const IntroSplash = () => {
     // Check if user has seen intro in this session
     const hasSeenIntro = sessionStorage.getItem("hasSeenIntro");
     if (hasSeenIntro) {
-      navigate("/login");
+      navigate("/home");
       return;
     }
 
@@ -28,7 +28,7 @@ const IntroSplash = () => {
           sessionStorage.setItem("hasSeenIntro", "true");
           setTimeout(() => {
             setIsAnimating(false);
-            navigate("/login");
+            navigate("/home");
           }, 500);
         }
       });

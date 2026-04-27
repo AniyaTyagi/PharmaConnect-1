@@ -8,7 +8,10 @@ const Product = require("../models/products");
 
 const sellerOnly = [protect, authorizeRoles("seller", "manufacturer", "admin")];
 
-// Public — buyers and sellers can browse
+// Public — anyone can browse products (no auth required)
+router.get("/public", productController.getProducts);
+
+// Protected — buyers and sellers can browse
 router.get("/", protect, productController.getProducts);
 
 // Stock alerts — seller's own products below threshold

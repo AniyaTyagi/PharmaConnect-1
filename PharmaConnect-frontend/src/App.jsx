@@ -4,6 +4,7 @@ import { WishlistProvider } from "./context/WishlistContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ChatbotWidget from "./components/ChatbotWidget";
 import IntroSplash from "./pages/IntroSplash";
+import HomePage from "./pages/HomePage";
 import Login from "./pages/login";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import CartPage from "./pages/CartPage";
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           {/* Intro Splash */}
           <Route path="/" element={<IntroSplash />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
 
           {/* Buyer */}
