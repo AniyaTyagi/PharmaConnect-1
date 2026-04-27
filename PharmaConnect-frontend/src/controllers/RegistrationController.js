@@ -67,27 +67,27 @@ export class RegistrationController {
   }
 
   static async getAllRegistrations() {
-    const res = await axiosInstance.get('/api/verification/');
+    const res = await axiosInstance.get('/verification/');
     return res.data;
   }
 
   static async getApprovedRegistrations() {
-    const res = await axiosInstance.get('/api/admin/approved');
+    const res = await axiosInstance.get('/admin/approved');
     return res.data;
   }
 
   static async approveRegistration(id) {
-    await axiosInstance.put(`/api/verification/approve/${id}`);
+    await axiosInstance.put(`/verification/approve/${id}`);
     return { success: true };
   }
 
   static async rejectRegistration(id, reason) {
-    await axiosInstance.put(`/api/verification/reject/${id}`, { reason });
+    await axiosInstance.put(`/verification/reject/${id}`, { reason });
     return { success: true };
   }
 
   static async deleteRegistration(id) {
-    await axiosInstance.delete(`/api/verification/${id}`);
+    await axiosInstance.delete(`/verification/${id}`);
     return { success: true };
   }
 }
