@@ -54,7 +54,7 @@ const invoiceRoutes = require("./routes/invoiceRoutes");
 app.use("/api/auth", authRoutes);
 app.use("/api/verification", verificationRoutes);
 app.use("/api/admin", adminRoutes);
-app.use("/products", productRoutes);
+app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/invoices", invoiceRoutes);

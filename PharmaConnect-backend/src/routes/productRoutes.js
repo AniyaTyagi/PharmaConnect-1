@@ -25,7 +25,7 @@ router.get("/stock-alerts", ...sellerOnly, async (req, res) => {
   }
 });
 
-router.post("/add", ...sellerOnly, upload.array("images", 5), productController.addProduct);
+router.post("/", ...sellerOnly, upload.array("images", 5), productController.addProduct);
 
 // upload.any() handles both multipart (with images) and falls through for JSON
 router.put("/:id", ...sellerOnly, upload.any(), productController.updateProduct);
