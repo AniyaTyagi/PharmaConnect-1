@@ -11,7 +11,7 @@ const SellerInvoicesPage = () => {
 
   useEffect(() => {
     console.log("Fetching seller invoices...");
-    axiosInstance.get("/api/invoices/seller")
+    axiosInstance.get("/invoices/seller")
       .then((r) => {
         console.log("Invoices received:", r.data);
         setInvoices(r.data);

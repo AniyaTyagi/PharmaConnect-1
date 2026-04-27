@@ -12,7 +12,7 @@ const InvoicesPage = () => {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    axiosInstance.get("/api/orders/my").then((r) => setInvoices(r.data)).catch(() => {});
+    axiosInstance.get("/orders/my").then((r) => setInvoices(r.data)).catch(() => {});
   }, []);
 
   return (

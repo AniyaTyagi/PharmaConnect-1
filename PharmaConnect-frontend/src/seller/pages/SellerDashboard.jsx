@@ -19,7 +19,7 @@ const SellerDashboard = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axiosInstance.get("/api/orders").then((r) => setOrders(r.data)).catch(() => {});
+    axiosInstance.get("/orders").then((r) => setOrders(r.data)).catch(() => {});
     axiosInstance.get("/products").then((r) => {
       const user = JSON.parse(localStorage.getItem("user") || "{}");
       setProducts(r.data.filter((p) => p.seller?._id === user.id));

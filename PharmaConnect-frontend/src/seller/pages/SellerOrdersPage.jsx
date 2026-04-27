@@ -18,7 +18,7 @@ const SellerOrdersPage = () => {
   const [filter, setFilter] = useState("all");
 
   const load = async () => {
-    const res = await axiosInstance.get("/api/orders");
+    const res = await axiosInstance.get("/orders");
     setOrders(res.data);
   };
 
@@ -27,7 +27,7 @@ const SellerOrdersPage = () => {
   const updateOrderStatus = async (id, status) => {
     try {
       console.log("Updating order:", id, "to status:", status);
-      const res = await axiosInstance.patch(`/api/orders/${id}/status`, { status });
+      const res = await axiosInstance.patch(`/orders/${id}/status`, { status });
       console.log("Update response:", res.data);
       load();
     } catch (err) {
