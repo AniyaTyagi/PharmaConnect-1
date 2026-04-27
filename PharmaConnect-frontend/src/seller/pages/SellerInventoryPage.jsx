@@ -33,7 +33,7 @@ const SellerInventoryPage = () => {
 
   const load = useCallback(() => {
     // Fetch from inventory endpoint instead of products
-    axiosInstance.get("/api/inventory").then((r) => {
+    axiosInstance.get("/inventory").then((r) => {
       const data = r.data.map(inv => ({
         _id: inv.product?._id || inv._id,
         name: inv.name || inv.product?.name,
@@ -47,7 +47,7 @@ const SellerInventoryPage = () => {
       setProducts(data);
       
       // Fetch stock alerts
-      axiosInstance.get(`/api/inventory/alerts?threshold=${threshold}`)
+      axiosInstance.get(`/inventory/alerts?threshold=${threshold}`)
         .then((res) => {
           const newAlerts = res.data.map((inv) => ({
             id:       inv._id,
