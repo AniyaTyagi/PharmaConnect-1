@@ -17,14 +17,14 @@ const AdminTransactionsPage = () => {
   const [selected, setSelected] = useState(null);
 
   const load = async () => {
-    const res = await axiosInstance.get("/api/orders");
+    const res = await axiosInstance.get("/orders");
     setTransactions(res.data);
   };
 
   useEffect(() => { load(); }, []);
 
   const updateStatus = async (id, status) => {
-    await axiosInstance.patch(`/api/orders/${id}/status`, { status });
+    await axiosInstance.patch(`/orders/${id}/status`, { status });
     load();
   };
 

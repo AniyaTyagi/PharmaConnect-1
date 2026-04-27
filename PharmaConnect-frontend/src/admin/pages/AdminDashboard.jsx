@@ -19,9 +19,9 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     Promise.all([
-      axiosInstance.get("/api/admin/users"),
+      axiosInstance.get("/admin/users"),
       axiosInstance.get("/products"),
-      axiosInstance.get("/api/orders"),
+      axiosInstance.get("/orders"),
     ]).then(([usersRes, productsRes, ordersRes]) => {
       const orders = ordersRes.data;
       setStats({

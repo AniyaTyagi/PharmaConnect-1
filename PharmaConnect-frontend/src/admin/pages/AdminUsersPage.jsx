@@ -17,7 +17,7 @@ const AdminUsersPage = () => {
   const [roleFilter, setRoleFilter] = useState("all");
 
   const load = async () => {
-    const res = await axiosInstance.get("/api/admin/users");
+    const res = await axiosInstance.get("/admin/users");
     setUsers(res.data.users);
   };
 
@@ -25,7 +25,7 @@ const AdminUsersPage = () => {
 
   const handleDelete = async (id) => {
     if (!confirm("Delete this user?")) return;
-    await axiosInstance.delete(`/api/admin/users/${id}`);
+    await axiosInstance.delete(`/admin/users/${id}`);
     load();
   };
 

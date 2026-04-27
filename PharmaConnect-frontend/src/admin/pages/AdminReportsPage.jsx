@@ -11,7 +11,7 @@ const AdminReportsPage = () => {
   const fetchReports = async () => {
     try {
       setLoading(true);
-      const res = await axiosInstance.get("/api/admin/reports");
+      const res = await axiosInstance.get("/admin/reports");
       setData(res.data);
     } catch (err) {
       console.error("Failed to fetch reports:", err);
