@@ -36,17 +36,7 @@ const Login = () => {
     }
   };
 
-  const handleDemoLogin = async (type) => {
-    try {
-      const credentials = { buyer: ["buyer@test.com", "password"], seller: ["seller@test.com", "password"], admin: ["admin@test.com", "password"] };
-      const [em, pw] = credentials[type];
-      const data = await api.login(em, pw);
-      saveUser(data.user);
-      navigate(routeByRole(data.user.role));
-    } catch (err) {
-      alert(err.response?.data?.message || err.message);
-    }
-  };
+
   return (
     <div className="login-container">
       
@@ -118,34 +108,6 @@ const Login = () => {
             <p className="signup-text">
               Don't have an account? <span onClick={() => setShowRegistration(true)} style={{cursor: 'pointer', color: '#10b981', fontWeight: 700}}>Sign up now</span>
             </p>
-
-            <div className="demo-accounts">
-              <h4>Quick Access Demo Accounts</h4>
-              
-              <div className="demo-card buyer" onClick={() => handleDemoLogin("buyer")} style={{cursor: "pointer"}}>
-                <div className="demo-info">
-                  <h5>Buyer Account</h5>
-                  <p>buyer@test.com / password</p>
-                </div>
-                <span className="demo-badge">Demo</span>
-              </div>
-
-              <div className="demo-card seller" onClick={() => handleDemoLogin("seller")} style={{cursor: "pointer"}}>
-                <div className="demo-info">
-                  <h5>Seller Account</h5>
-                  <p>seller@test.com / password</p>
-                </div>
-                <span className="demo-badge">Demo</span>
-              </div>
-
-              <div className="demo-card admin" onClick={() => handleDemoLogin("admin")} style={{cursor: "pointer"}}>
-                <div className="demo-info">
-                  <h5>Admin Account</h5>
-                  <p>admin@test.com / password</p>
-                </div>
-                <span className="demo-badge">Demo</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
