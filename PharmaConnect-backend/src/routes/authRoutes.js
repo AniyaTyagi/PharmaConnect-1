@@ -37,17 +37,18 @@ router.post("/register",
     const accessToken = generateToken(user, "access");
     const refreshToken = generateToken(user, "refresh");
 
+    const isProd = process.env.NODE_ENV === "production";
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 15 * 60 * 1000 // 15 minutes
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
@@ -76,18 +77,19 @@ router.post("/login",
     const accessToken = generateToken(user, "access");
     const refreshToken = generateToken(user, "refresh");
 
+    const isProd = process.env.NODE_ENV === "production";
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 15 * 60 * 1000
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 7 * 24 * 60 * 60 * 1000
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
     res.json({
@@ -115,11 +117,12 @@ router.post("/refresh", async (req, res) => {
 
     const accessToken = generateToken(user, "access");
 
+    const isProd = process.env.NODE_ENV === "production";
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 15 * 60 * 1000
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
     res.json({ message: "Token refreshed" });
