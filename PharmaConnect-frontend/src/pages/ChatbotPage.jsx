@@ -35,7 +35,8 @@ const ChatbotPage = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch("${import.meta.env.VITE_API_URL}/api/chat", {
+      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+      const response = await fetch(`${apiBase}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })

@@ -10,5 +10,20 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const isConfigValid = Boolean(firebaseConfig.apiKey && firebaseConfig.apiKey !== 'undefined');
+
+let app = null;
+let auth = null;
+
+if (isConfigValid) {
+  try {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+  } catch (err) {
+    console.error('Firebase initialization error:', err);
+  }
+} else {
+  console.warn('⚠️ Firebase API Key missing. Please set VITE_FIREBASE_API_KEY in your Vercel Environment Variables.');
+}
+
+export { auth };

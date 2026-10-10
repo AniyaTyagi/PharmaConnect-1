@@ -3,6 +3,10 @@ import { auth } from '../config/firebase';
 
 export class FirebaseSMSService {
   static setupRecaptcha(containerId) {
+    if (!auth) {
+      console.error('Firebase auth is not initialized.');
+      return null;
+    }
     if (!window.recaptchaVerifier) {
       try {
         window.recaptchaVerifier = new RecaptchaVerifier(auth, containerId, {
@@ -24,6 +28,9 @@ export class FirebaseSMSService {
   }
 
   static async sendOTP(phoneNumber) {
+    if (!auth) {
+      return { success: false, message: 'Firebase authentication is not configured in environment variables.' };
+    }
     try {
       // Ensure phone number has country code
       const formattedPhone = phoneNumber.startsWith('+') ? phoneNumber : `+91${phoneNumber}`;
