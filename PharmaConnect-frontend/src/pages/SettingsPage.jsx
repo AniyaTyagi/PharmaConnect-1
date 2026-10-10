@@ -42,11 +42,11 @@ const SettingsPage = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user") || '{"name":"Buyer","email":"buyer@test.com"}');
 
-  const [profile,    setProfile]    = useState({ name: user.name, email: user.email, phone: "", company: "" });
-  const [passwords,  setPasswords]  = useState({ current: "", newPass: "", confirm: "" });
+  const [profile, setProfile] = useState({ name: user.name, email: user.email, phone: "", company: "" });
+  const [passwords, setPasswords] = useState({ current: "", newPass: "", confirm: "" });
   const [notifPrefs, setNotifPrefs] = useState({ orderUpdates: true, invoices: true, shipment: true, promotions: false });
-  const [showPw,     setShowPw]     = useState(false);
-  const [saved,      setSaved]      = useState(null);
+  const [showPw, setShowPw] = useState(false);
+  const [saved, setSaved] = useState(null);
   const [logoutConfirm, setLogoutConfirm] = useState(false);
 
   const flash = (s) => { setSaved(s); setTimeout(() => setSaved(null), 2500); };
@@ -105,9 +105,9 @@ const SettingsPage = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Full Name"    name="name"    value={profile.name}    onChange={(e) => setProfile({ ...profile, name: e.target.value })}    placeholder="Your name" />
-                <Field label="Email"        name="email"   value={profile.email}   onChange={(e) => setProfile({ ...profile, email: e.target.value })}   type="email" placeholder="you@example.com" />
-                <Field label="Phone"        name="phone"   value={profile.phone}   onChange={(e) => setProfile({ ...profile, phone: e.target.value })}   placeholder="+91 XXXXX XXXXX" />
+                <Field label="Full Name" name="name" value={profile.name} onChange={(e) => setProfile({ ...profile, name: e.target.value })} placeholder="Your name" />
+                <Field label="Email" name="email" value={profile.email} onChange={(e) => setProfile({ ...profile, email: e.target.value })} type="email" placeholder="you@example.com" />
+                <Field label="Phone" name="phone" value={profile.phone} onChange={(e) => setProfile({ ...profile, phone: e.target.value })} placeholder="+91 XXXXX XXXXX" />
                 <Field label="Company Name" name="company" value={profile.company} onChange={(e) => setProfile({ ...profile, company: e.target.value })} placeholder="Your company" />
               </div>
               <div className="flex items-center justify-between pt-1">
@@ -123,10 +123,10 @@ const SettingsPage = () => {
           {/* Notifications */}
           <SectionCard icon={Bell} title="Notification Preferences">
             <div className="space-y-3">
-              <Toggle label="Order Updates"    sub="Get notified when your order status changes"    checked={notifPrefs.orderUpdates} onChange={() => setNotifPrefs((p) => ({ ...p, orderUpdates: !p.orderUpdates }))} />
-              <Toggle label="Invoice Alerts"   sub="Receive alerts when new invoices are generated" checked={notifPrefs.invoices}     onChange={() => setNotifPrefs((p) => ({ ...p, invoices: !p.invoices }))} />
-              <Toggle label="Shipment Tracking" sub="Track your shipments in real-time"             checked={notifPrefs.shipment}     onChange={() => setNotifPrefs((p) => ({ ...p, shipment: !p.shipment }))} />
-              <Toggle label="Promotions"        sub="Receive promotional offers and discounts"      checked={notifPrefs.promotions}   onChange={() => setNotifPrefs((p) => ({ ...p, promotions: !p.promotions }))} />
+              <Toggle label="Order Updates" sub="Get notified when your order status changes" checked={notifPrefs.orderUpdates} onChange={() => setNotifPrefs((p) => ({ ...p, orderUpdates: !p.orderUpdates }))} />
+              <Toggle label="Invoice Alerts" sub="Receive alerts when new invoices are generated" checked={notifPrefs.invoices} onChange={() => setNotifPrefs((p) => ({ ...p, invoices: !p.invoices }))} />
+              <Toggle label="Shipment Tracking" sub="Track your shipments in real-time" checked={notifPrefs.shipment} onChange={() => setNotifPrefs((p) => ({ ...p, shipment: !p.shipment }))} />
+              <Toggle label="Promotions" sub="Receive promotional offers and discounts" checked={notifPrefs.promotions} onChange={() => setNotifPrefs((p) => ({ ...p, promotions: !p.promotions }))} />
             </div>
             <div className="flex items-center justify-between pt-2 border-t border-gray-100">
               {saved === "notif" ? <p className="text-xs text-emerald-600 font-medium">✓ Preferences saved</p> : <span />}
