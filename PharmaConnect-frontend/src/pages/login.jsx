@@ -5,11 +5,17 @@ import { saveUser } from "../utils/auth";
 import RegistrationForm from "../views/RegistrationForm";
 import "../styles/login.css";
 
+const DEMO_ACCOUNTS = [
+  { label: "Buyer Account",  email: "buyer@test.com",  password: "password123", role: "buyer",  badge: "Buyer"  },
+  { label: "Seller Account", email: "seller@test.com", password: "password123", role: "seller", badge: "Seller" },
+];
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showRegistration, setShowRegistration] = useState(false);
+  const [loadingDemo, setLoadingDemo] = useState(null);
 
   const routeByRole = (role) => {
     if (role === "seller" || role === "manufacturer") return "/seller/dashboard";
@@ -33,6 +39,19 @@ const Login = () => {
       navigate(routeByRole(data.user.role));
     } catch (err) {
       alert(err.response?.data?.message || err.message);
+    }
+  };
+
+  const handleDemoLogin = async (demo) => {
+    setLoadingDemo(demo.role);
+    try {
+      const data = await api.login(demo.email, demo.password);
+      saveUser(data.user);
+      navigate(routeByRole(data.user.role));
+    } catch (err) {
+      alert(err.response?.data?.message || "Demo login failed. Please try again.");
+    } finally {
+      setLoadingDemo(null);
     }
   };
 
@@ -108,6 +127,26 @@ const Login = () => {
             <p className="signup-text">
               Don't have an account? <span onClick={() => setShowRegistration(true)} style={{cursor: 'pointer', color: '#10b981', fontWeight: 700}}>Sign up now</span>
             </p>
+
+            {/* Demo Accounts */}
+            <div className="demo-accounts">
+              <h4>Quick Demo Access</h4>
+              {DEMO_ACCOUNTS.map((demo) => (
+                <div
+                  key={demo.role}
+                  className={`demo-card ${demo.role}`}
+                  onClick={() => handleDemoLogin(demo)}
+                >
+                  <div className="demo-info">
+                    <h5>{demo.label}</h5>
+                    <p>{demo.email}</p>
+                  </div>
+                  <span className="demo-badge">
+                    {loadingDemo === demo.role ? "Loading…" : `Try ${demo.badge}`}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
