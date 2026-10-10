@@ -13,14 +13,18 @@ const app = express();
 // =======================
 // 🔹 Middleware
 // =======================
-const allowedOrigins = process.env.ALLOWED_ORIGINS
+const userOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim().replace(/\/$/, ""))
-  : [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:3000",
-      "https://pharmaconnect1.vercel.app"
-    ];
+  : [];
+
+const defaultOrigins = [
+  "https://pharmaconnect1.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:3000"
+];
+
+const allowedOrigins = Array.from(new Set([...defaultOrigins, ...userOrigins]));
 
 app.use(
   cors({
@@ -30,7 +34,8 @@ app.use(
       if (
         allowedOrigins.includes(cleanOrigin) ||
         cleanOrigin.endsWith(".vercel.app") ||
-        cleanOrigin.includes("localhost")
+        cleanOrigin.includes("localhost") ||
+        cleanOrigin.includes("127.0.0.1")
       ) {
         return callback(null, true);
       }
